@@ -1,0 +1,5 @@
+# vim: filetype=gitconfig
+[include]
+	path = ~/.gitconfig.d/identity.default
+[includeIf "gitdir:~/.config/vcsh/repo.d/"]
+	path = ~/.gitconfig.d/identity.personal

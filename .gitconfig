@@ -1,0 +1,44 @@
+[core]
+	excludesfile = ~/.gitignore
+[alias]
+	st = !tig status
+	co = checkout
+	s = status
+[rebase]
+	autostash = true
+	autosquash = true
+[stash]
+	showPatch = true
+[fetch]
+	prune = true
+[pull]
+	rebase = true
+[branch]
+	autosetuprebase = always
+[mergetool]
+	keepBackup = false
+	prompt = false
+[diff]
+	algorithm = patience
+	compactionHeuristic = true
+	tool = Kaleidoscope
+[remote "origin"]
+	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+[rerere]
+	enabled = true
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[web]
+	browser = open
+[include]
+	path = ~/.gitconfig.d/diff-so-fancy
+	path = ~/.gitconfig.d/identity
+	path = ~/.gitconfig.local
+

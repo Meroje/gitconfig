@@ -1,0 +1,10 @@
+*
+!/.gitconfig
+!/.gitconfig.d
+!/.gitconfig.d/diff-so-fancy
+!/.gitconfig.d/identity
+!/.gitignore
+!/.gitignore.d
+!/.gitignore.d/git
+.gitconfig.local
+.gitconfig.d/identity.*
