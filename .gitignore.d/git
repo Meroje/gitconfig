@@ -2,6 +2,10 @@
 !/.gitconfig
 !/.gitconfig.d
 !/.gitconfig.d/diff-so-fancy
+!/.gitconfig.d/hooks
+!/.gitconfig.d/hooks/post-checkout
+!/.gitconfig.d/hooks/pre-commit
+!/.gitconfig.d/hooksPath
 !/.gitconfig.d/identity
 !/.gitignore
 !/.gitignore.d

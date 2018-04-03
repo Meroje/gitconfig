@@ -55,5 +55,6 @@
 	browser = open
 [include]
 	path = ~/.gitconfig.d/diff-so-fancy
+	path = ~/.gitconfig.d/hooksPath
 	path = ~/.gitconfig.d/identity
 	path = ~/.gitconfig.local
