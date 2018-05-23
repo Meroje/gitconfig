@@ -53,6 +53,11 @@
 	prompt = false
 [web]
 	browser = open
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 [include]
 	path = ~/.gitconfig.d/diff-so-fancy
 	path = ~/.gitconfig.d/hooksPath
