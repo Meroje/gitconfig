@@ -62,4 +62,5 @@
 	path = ~/.gitconfig.d/diff-so-fancy
 	path = ~/.gitconfig.d/hooksPath
 	path = ~/.gitconfig.d/identity
+	path = ~/.gitconfig.d/composer-git-merge-driver
 	path = ~/.gitconfig.local

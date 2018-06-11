@@ -1,0 +1,5 @@
+# https://github.com/balbuf/composer-git-merge-driver
+[merge "composer_json"]
+	name = composer JSON file merge driver
+	driver = ~/.gitconfig.d/composer-git-merge-driver.php %O %A %B %L %P
+	recursive = binary
