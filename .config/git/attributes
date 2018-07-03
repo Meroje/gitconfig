@@ -1,0 +1,6 @@
+composer.json merge=composer_json
+composer.lock merge=composer_json
+package-lock.json merge=npm-merge-driver
+npm-shrinkwrap.json merge=npm-merge-driver
+yarn.lock merge=yarn-merge-driver
+

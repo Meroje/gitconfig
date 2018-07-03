@@ -1,5 +1,4 @@
 [core]
-	excludesfile = ~/.gitignore
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	preloadindex = true
 [help]
@@ -59,8 +58,8 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 [include]
-	path = ~/.gitconfig.d/diff-so-fancy
-	path = ~/.gitconfig.d/hooksPath
-	path = ~/.gitconfig.d/identity
-	path = ~/.gitconfig.d/composer-git-merge-driver
-	path = ~/.gitconfig.local
+	path = ./config.d/diff-so-fancy
+	path = ./config.d/hooksPath
+	path = ./config.d/identity
+	path = ./config.d/composer-git-merge-driver
+	path = ./config.local
