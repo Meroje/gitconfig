@@ -1,0 +1,4 @@
+[$HOME/.config/vcsh/repo.d/gitconfig.git]
+checkout = vcsh clone git://github.com/Meroje/gitconfig.git gitconfig
+order = 10
+
