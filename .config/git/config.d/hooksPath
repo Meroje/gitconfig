@@ -1,2 +1,2 @@
 [core]
-	hooksPath = $XDG_CONFIG_HOME/git/hooks
+	hooksPath = ~/.config/git/hooks
