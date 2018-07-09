@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-if [ -f "composer.lock" ]; then
+if [ -f "composer.lock" -a -f ".php_cs.dist" ]; then
     PHP_CS_FIXER="$(composer config bin-dir)/php-cs-fixer"
 
     if [ -x "$PHP_CS_FIXER" ]; then
