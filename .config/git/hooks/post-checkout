@@ -25,7 +25,7 @@ function composer.lock {
         COMPOSER="php composer.phar"
     fi
 
-    which composer > /dev/null 2>&1
+    command -v composer > /dev/null 2>&1
     if [ $? ]; then
         COMPOSER="composer"
     fi
@@ -38,7 +38,7 @@ function composer.lock {
 function package-lock.json {
     echo -e "$REDCOLOR package-lock.json has changed: running npm install $NOCOLOR"
 
-    which npm > /dev/null 2>&1
+    command -v npm > /dev/null 2>&1
     if [[ $GIT_MERGE_REBASE = false && $? ]]; then
         npm install
     fi
@@ -47,9 +47,9 @@ function package-lock.json {
 function yarn.lock {
     echo -e "$REDCOLOR yarn.lock has changed: running yarn install $NOCOLOR"
 
-    which yarn > /dev/null 2>&1
+    command -v npx > /dev/null 2>&1
     if [[ $GIT_MERGE_REBASE = false && $? ]]; then
-        yarn install
+        npx yarn install
     fi
 }
 FUNCS=$(declare -F -p | cut -d " " -f 3)
