@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Put this file at: .git/hooks/post-checkout
 # and make it executable
@@ -40,7 +40,7 @@ function package-lock.json {
 
     command -v npm > /dev/null 2>&1
     if [[ $GIT_MERGE_REBASE = false && $? ]]; then
-        npm install
+        npm ci
     fi
 }
 
@@ -49,7 +49,7 @@ function yarn.lock {
 
     command -v npx > /dev/null 2>&1
     if [[ $GIT_MERGE_REBASE = false && $? ]]; then
-        npx yarn install
+        npx yarn install --frozen-lockfile
     fi
 }
 FUNCS=$(declare -F -p | cut -d " " -f 3)
