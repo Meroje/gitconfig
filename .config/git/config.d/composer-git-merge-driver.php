@@ -14,7 +14,7 @@ $conflicts = [];
 // length for conflict marker (<<<)
 $markerLen = $argv[4];
 // are we working with the lock file?
-$isLock = strtolower($argv[5]) === 'composer.lock';
+$isLock = basename(strtolower($argv[5])) === 'composer.lock';
 // indentation type to use
 $indentation = $defaultIndentation = '    ';
 
@@ -105,6 +105,40 @@ function merge($ancestor, $ours, $theirs) {
 	return $ours;
 }
 
+// Sort composer packages
+// adapted from https://github.com/composer/composer/blob/master/src/Composer/Json/JsonManipulator.php#L117-L146
+function sortPackages(&$packages) {
+	$prefix = function ($requirement) {
+		// value from https://github.com/composer/composer/blob/master/src/Composer/Repository/PlatformRepository.php#L27
+		$platformPackageRegexp = '{^(?:php(?:-64bit|-ipv6|-zts|-debug)?|hhvm|(?:ext|lib)-[^/ ]+)$}i';
+
+		if (preg_match($platformPackageRegexp, $requirement)) {
+			return preg_replace(
+				[
+					'/^php/',
+					'/^hhvm/',
+					'/^ext/',
+					'/^lib/',
+					'/^\D/',
+				],
+				[
+					'0-$0',
+					'1-$0',
+					'2-$0',
+					'3-$0',
+					'4-$0',
+				],
+				$requirement
+			);
+		}
+		return '5-' . $requirement;
+	};
+
+	uksort($packages, function ($a, $b) use ($prefix) {
+		return strnatcmp($prefix($a), $prefix($b));
+	});
+}
+
 // special handling for lock files
 if ($isLock) {
 	// @todo handle alias property as well
@@ -155,7 +189,19 @@ if ($isLock) {
 
 	$merged = json_encode($merged, JSON_ENCODE_OPTIONS);
 } else {
-	$merged = json_encode(merge($ancestor, $ours, $theirs), JSON_ENCODE_OPTIONS);
+	$merged = merge($ancestor, $ours, $theirs);
+
+	if (isset($merged['config']['sort-packages']) && $merged['config']['sort-packages'] === true) {
+		foreach (['require', 'require-dev'] as $section) {
+			// skip if the section type doesn't exist
+			if (!isset($merged[$section])) {
+				continue;
+			}
+			sortPackages($merged[$section]);
+		}
+	}
+
+	$merged = json_encode($merged, JSON_ENCODE_OPTIONS);
 }
 
 // if we have conflicts, replace the conflict markers with the actual conflicting values
