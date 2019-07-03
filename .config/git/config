@@ -25,6 +25,8 @@
 [mergetool]
 	keepBackup = false
 	prompt = false
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
 [diff]
 	renamelimit = 0
 	mnemonicprefix = true
@@ -43,6 +45,8 @@
 	fetchJobs = 4
 [difftool]
 	prompt = false
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
 [web]
 	browser = open
 [filter "lfs"]
