@@ -2,6 +2,7 @@
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	preloadindex = true
 	pager = less --tabs=4 -RFX
+	untrackedCache = true
 [help]
 	autoCorrect = 30
 [alias]
@@ -17,6 +18,7 @@
 	showPatch = true
 [fetch]
 	prune = true
+	writeCommitGraph = true
 [pull]
 	rebase = true
 [branch]
@@ -34,6 +36,8 @@
 	submodule = log
 	algorithm = patience
 	compactionHeuristic = true
+    indentHeuristic = true
+	colorMoved = dimmed-zebra
 [remote "origin"]
 #	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 [rerere]
@@ -62,3 +66,11 @@
 	path = ./config.local
 [icdiff]
 	options = --highlight --line-numbers
+[index]
+	version = 4
+[gc]
+	writeCommitGraph = true
+[secrets]
+	patterns = [A-Z0-9]{20}
+[advice]
+	detachedHead = false
