@@ -74,3 +74,5 @@
 	patterns = [A-Z0-9]{20}
 [advice]
 	detachedHead = false
+[protocol]
+	version = 2
