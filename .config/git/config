@@ -76,5 +76,3 @@
 	detachedHead = false
 [protocol]
 	version = 2
-[init]
-	templateDir = /Users/jforay/.config/git/template
