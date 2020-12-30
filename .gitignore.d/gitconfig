@@ -14,6 +14,9 @@
 !/.config/git/hooks/post-checkout
 !/.config/git/hooks/pre-commit
 !/.config/git/ignore
+!/.config/git/template
+!/.config/git/template/hooks
+!/.config/git/template/hooks/pre-commit
 !/.config/mr
 !/.config/mr/config.d
 !/.config/mr/config.d/gitconfig.vcsh
