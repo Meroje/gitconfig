@@ -6,3 +6,4 @@ node_modules/
 var/cache
 .terraform/
 *.pyc
+terraform.tfstate.d/
