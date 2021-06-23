@@ -9,6 +9,7 @@
 	st = !tig status
 	co = checkout
 	s = status
+	cake = log --date=format:'%d %b %Y' --diff-filter=A --name-only --pretty='%n%C(yellow bold)🎂️ %ad%Creset by (%C(blue bold)%h%Creset)'
 [commit]
 	verbose = true
 [rebase]
@@ -59,7 +60,7 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 [include]
-	path = ./config.d/diff-so-fancy
+	path = ./config.d/delta
 	path = ./config.d/hooksPath
 	path = ./config.d/identity
 	path = ./config.d/composer-git-merge-driver
