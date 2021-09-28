@@ -37,7 +37,7 @@
 	submodule = log
 	algorithm = patience
 	compactionHeuristic = true
-    indentHeuristic = true
+	indentHeuristic = true
 	colorMoved = dimmed-zebra
 [remote "origin"]
 #	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
