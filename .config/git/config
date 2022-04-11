@@ -59,12 +59,6 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-[include]
-	path = ./config.d/delta
-	path = ./config.d/hooksPath
-	path = ./config.d/identity
-	path = ./config.d/composer-git-merge-driver
-	path = ./config.local
 [icdiff]
 	options = --highlight --line-numbers
 [index]
@@ -79,3 +73,9 @@
 	version = 2
 [init]
 	defaultBranch = master
+[include]
+	path = ./config.d/delta
+	path = ./config.d/hooksPath
+	path = ./config.d/identity
+	path = ./config.d/composer-git-merge-driver
+	path = ./config.local
