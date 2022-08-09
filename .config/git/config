@@ -20,8 +20,11 @@
 [fetch]
 	prune = true
 	writeCommitGraph = true
+[push]
+	autoSetupRemote = true
 [pull]
 	rebase = true
+	twohead = ort
 [branch]
 	autosetupmerge = true
 	autosetuprebase = always
@@ -71,11 +74,16 @@
 	detachedHead = false
 [protocol]
 	version = 2
+[transfer]
+    credentialsInUrl = warn
 [init]
 	defaultBranch = master
+[merge]
+	conflictStyle = zdiff3
 [include]
 	path = ./config.d/delta
 	path = ./config.d/hooksPath
 	path = ./config.d/identity
 	path = ./config.d/composer-git-merge-driver
+	path = ./config.d/tig
 	path = ./config.local
