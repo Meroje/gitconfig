@@ -8,3 +8,8 @@ var/cache
 *.pyc
 *.zwc
 terraform.tfstate.d/
+.idea/
+.env.local
+go.work
+go.work.sum
+*.code-workspace
