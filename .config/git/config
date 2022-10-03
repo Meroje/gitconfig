@@ -15,6 +15,7 @@
 [rebase]
 	autostash = true
 	autosquash = true
+	updateRefs = true
 [stash]
 	showPatch = true
 [fetch]
