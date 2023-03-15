@@ -13,3 +13,6 @@ terraform.tfstate.d/
 go.work
 go.work.sum
 *.code-workspace
+venv/
+.ansible/
+.aws-sam/
