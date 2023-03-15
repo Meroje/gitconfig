@@ -24,11 +24,10 @@
 [push]
 	autoSetupRemote = true
 [pull]
-	rebase = true
+	rebase = merges
 	twohead = ort
 [branch]
-	autosetupmerge = true
-	autosetuprebase = always
+	autoSetupRebase = always
 [mergetool]
 	keepBackup = false
 	prompt = false
@@ -88,3 +87,5 @@
 	path = ./config.d/composer-git-merge-driver
 	path = ./config.d/tig
 	path = ./config.local
+[notes]
+	rewriteRef = refs/notes/commits
