@@ -42,6 +42,7 @@
 	compactionHeuristic = true
 	indentHeuristic = true
 	colorMoved = dimmed-zebra
+	colormovedws = allow-indentation-change
 [remote "origin"]
 #	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 [rerere]
