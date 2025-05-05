@@ -1,0 +1,5 @@
+# vim: filetype=gitconfig
+[core]
+	untrackedCache = false
+	fsmonitor = false
+

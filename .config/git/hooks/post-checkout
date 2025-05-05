@@ -44,12 +44,21 @@ function package-lock.json {
     fi
 }
 
+function pnpm-lock.yaml {
+    echo -e "$REDCOLOR pnpm-lock.yaml has changed: running pnpm install $NOCOLOR"
+
+    command -v npx > /dev/null 2>&1
+    if [[ $GIT_MERGE_REBASE = false && $? ]]; then
+        npx pnpm install --frozen-lockfile
+    fi
+}
+
 function yarn.lock {
     echo -e "$REDCOLOR yarn.lock has changed: running yarn install $NOCOLOR"
 
     command -v npx > /dev/null 2>&1
     if [[ $GIT_MERGE_REBASE = false && $? ]]; then
-        npx yarn install --frozen-lockfile
+        npx yarn@berry install --frozen-lockfile
     fi
 }
 FUNCS=$(declare -F -p | cut -d " " -f 3)

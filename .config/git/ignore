@@ -16,3 +16,6 @@ go.work.sum
 venv/
 .ansible/
 .aws-sam/
+/bazel-*
+/.yarn/
+.aider*

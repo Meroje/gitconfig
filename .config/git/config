@@ -3,25 +3,40 @@
 	preloadindex = true
 	pager = less --tabs=4 -RFX
 	untrackedCache = true
+	fsmonitor = true
 [help]
-	autoCorrect = 30
+	autoCorrect = prompt
 [alias]
 	st = !tig status
 	co = checkout
 	s = status
 	cake = log --date=format:'%d %b %Y' --diff-filter=A --name-only --pretty='%n%C(yellow bold)🎂️ %ad%Creset by (%C(blue bold)%h%Creset)'
+	root = rev-parse --show-toplevel
+	pyll = pull
+[column]
+	ui = auto
 [commit]
 	verbose = true
+	cleanup = scissors
+[tag]
+	sort = version:refname
+[branch]
+	sort = -committerdate
 [rebase]
 	autostash = true
 	autosquash = true
 	updateRefs = true
+	missingCommitsCheck = error
 [stash]
 	showPatch = true
 [fetch]
 	prune = true
+	pruneTags = true
+	all = true
 	writeCommitGraph = true
+	fsckobjects = true
 [push]
+	default = simple
 	autoSetupRemote = true
 [pull]
 	rebase = merges
@@ -38,7 +53,7 @@
 	mnemonicprefix = true
 	renames = copies
 	submodule = log
-	algorithm = patience
+	algorithm = histogram
 	compactionHeuristic = true
 	indentHeuristic = true
 	colorMoved = dimmed-zebra
@@ -47,11 +62,13 @@
 #	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 [rerere]
 	enabled = true
+	autoupdate = true
 [status]
 	showUntrackedFiles = all
 	submoduleSummary = true
 [submodule]
 	fetchJobs = 4
+	recurse = true
 [difftool]
 	prompt = false
 [difftool "vscode"]
@@ -76,17 +93,32 @@
 [protocol]
 	version = 2
 [transfer]
-    credentialsInUrl = warn
+	credentialsInUrl = warn
+	fsckobjects = true
+[receive]
+	fsckobjects = true
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [merge]
+	keepbackup = false
 	conflictStyle = zdiff3
+[notes]
+	rewriteRef = refs/notes/commits
+[log]
+	date = local
+[pack]
+	usePathWalk = true
 [include]
 	path = ./config.d/delta
 	path = ./config.d/hooksPath
 	path = ./config.d/identity
 	path = ./config.d/composer-git-merge-driver
 	path = ./config.d/tig
+	path = ./config.d/absorb
 	path = ./config.local
-[notes]
-	rewriteRef = refs/notes/commits
+[includeIf "gitdir:~/.config/vcsh/repo.d/"]
+	path = ./config.d/nofsmonitor
+[includeIf "gitdir:~/Library/Caches/"]
+	path = ./config.d/nofsmonitor
+[includeIf "gitdir:~/.cache/"]
+	path = ./config.d/nofsmonitor
